@@ -1,0 +1,955 @@
+/* ========================================
+   CLIMATRACK - ESTILOS CSS (STYLE.CSS)
+   Comentários explicando cada seção e propriedade
+   ======================================== */
+
+/* ========== VARIÁVEIS CSS (CORES E ESPAÇAMENTO) ========== */
+/* Define as cores principais que serão usadas em todo o site */
+:root {
+    /* Cor verde primária (usada em botões e destaques) */
+    --primary-color: #2ecc71;
+    /* Cor azul secundária (usada em elementos alternativos) */
+    --secondary-color: #3498db;
+    /* Cor de acento (vermelho para alertas) */
+    --accent-color: #e74c3c;
+    /* Cor de fundo da página */
+    --bg-color: #f8fafb;
+    /* Cor de fundo dos cards */
+    --card-bg: #ffffff;
+    /* Cor do texto principal */
+    --text-color: #2c3e50;
+    /* Cor do texto secundário (mais clara) */
+    --text-light: #7f8c8d;
+    /* Cor das bordas */
+    --border-color: #ecf0f1;
+    /* Sombra padrão dos elementos */
+    --shadow: 0 4px 15px rgba(0,0,0,0.08);
+    /* Sombra ao passar o mouse */
+    --shadow-hover: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* ========== RESET E ESTILOS GLOBAIS ========== */
+/* Remove as margens e padding padrão de todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define o comportamento de scroll suave em toda a página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos globais do corpo da página */
+body {
+    /* Define a fonte padrão */
+    font-family: 'Poppins', sans-serif;
+    /* Cor de fundo da página */
+    background-color: var(--bg-color);
+    /* Cor do texto padrão */
+    color: var(--text-color);
+    /* Altura da linha para melhor legibilidade */
+    line-height: 1.6;
+}
+
+/* ========== NAVEGAÇÃO ========== */
+/* Estilos da barra de navegação */
+.navbar {
+    /* Cor de fundo branca */
+    background: var(--card-bg);
+    /* Sombra para destacar a navegação */
+    box-shadow: var(--shadow);
+    /* Posição fixa no topo */
+    position: sticky;
+    /* Distância do topo */
+    top: 0;
+    /* Ordem de sobreposição (fica acima de outros elementos) */
+    z-index: 100;
+}
+
+/* Container da navegação que centraliza o conteúdo */
+.nav-container {
+    /* Largura máxima do container */
+    max-width: 1200px;
+    /* Centraliza horizontalmente */
+    margin: 0 auto;
+    /* Espaçamento interno */
+    padding: 0 20px;
+    /* Usa flexbox para alinhar itens */
+    display: flex;
+    /* Espaço entre logo e menu */
+    justify-content: space-between;
+    /* Alinha itens verticalmente no centro */
+    align-items: center;
+    /* Altura da navegação */
+    height: 70px;
+}
+
+/* Estilos do logo */
+.logo {
+    /* Usa flexbox para alinhar itens */
+    display: flex;
+    /* Alinha itens no centro */
+    align-items: center;
+    /* Tamanho da fonte */
+    font-size: 1.5rem;
+    /* Peso da fonte (mais grossa) */
+    font-weight: 700;
+    /* Cor do logo */
+    color: var(--primary-color);
+    /* Remove underline padrão de links */
+    text-decoration: none;
+}
+
+/* Estilos do texto do logo com gradiente */
+.logo-text {
+    /* Cria um gradiente de cores */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Aplica o gradiente ao texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Texto do card flutuante */
+.card-text {
+    /* Tamanho da fonte */
+    font-size: 1.5rem;
+    /* Peso da fonte */
+    font-weight: 700;
+    /* Cor branca */
+    color: white;
+    /* Alinha o texto ao centro */
+    text-align: center;
+}
+
+/* Emoji de plantinha */
+.emoji-plant {
+    /* Tamanho muito grande */
+    font-size: 6rem;
+    /* Exibe como bloco */
+    display: block;
+}
+
+/* Estilos do menu de navegação */
+.nav-menu {
+    /* Remove os pontos da lista */
+    list-style: none;
+    /* Usa flexbox para alinhar itens horizontalmente */
+    display: flex;
+    /* Espaço entre itens do menu */
+    gap: 30px;
+}
+
+/* Estilos dos links do menu */
+.nav-link {
+    /* Remove underline padrão */
+    text-decoration: none;
+    /* Cor do texto */
+    color: var(--text-color);
+    /* Peso da fonte */
+    font-weight: 500;
+    /* Animação suave ao passar o mouse */
+    transition: all 0.3s ease;
+    /* Posição relativa para usar ::after */
+    position: relative;
+}
+
+/* Estilos ao passar o mouse ou quando ativo */
+.nav-link:hover,
+.nav-link.active {
+    /* Muda a cor para a cor primária */
+    color: var(--primary-color);
+}
+
+/* Linha decorativa abaixo do link ativo */
+.nav-link.active::after {
+    /* Cria um elemento pseudo após o link */
+    content: '';
+    /* Posição absoluta para ficar embaixo do link */
+    position: absolute;
+    /* Distância do topo */
+    bottom: -5px;
+    /* Alinha com o início do link */
+    left: 0;
+    /* Largura igual ao link */
+    width: 100%;
+    /* Altura da linha */
+    height: 2px;
+    /* Cor da linha */
+    background: var(--primary-color);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    /* Reduz o espaço entre itens do menu */
+    .nav-menu {
+        gap: 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Reduz a altura da navegação */
+    .nav-container {
+        height: 60px;
+    }
+}
+
+/* ========== SEÇÃO HERO (DESTAQUE) ========== */
+/* Estilos da seção principal de destaque */
+.hero {
+    /* Largura máxima */
+    max-width: 1200px;
+    /* Centraliza horizontalmente */
+    margin: 0 auto;
+    /* Espaçamento interno */
+    padding: 80px 20px;
+    /* Cria um grid com duas colunas */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Espaço entre as colunas */
+    gap: 50px;
+    /* Alinha itens verticalmente no centro */
+    align-items: center;
+}
+
+/* Estilos do conteúdo do hero */
+.hero-content h1 {
+    /* Tamanho grande da fonte */
+    font-size: 3.5rem;
+    /* Cor do texto */
+    color: var(--text-color);
+    /* Espaço abaixo do título */
+    margin-bottom: 20px;
+    /* Altura da linha */
+    line-height: 1.2;
+}
+
+/* Estilos do subtítulo */
+.subtitle {
+    /* Tamanho da fonte */
+    font-size: 1.3rem;
+    /* Cor primária */
+    color: var(--primary-color);
+    /* Peso da fonte */
+    font-weight: 600;
+    /* Espaço abaixo */
+    margin-bottom: 15px;
+}
+
+/* Estilos da descrição */
+.description {
+    /* Tamanho da fonte */
+    font-size: 1.1rem;
+    /* Cor mais clara */
+    color: var(--text-light);
+    /* Espaço abaixo */
+    margin-bottom: 30px;
+    /* Altura da linha para melhor legibilidade */
+    line-height: 1.8;
+}
+
+/* Estilos da imagem do hero */
+.hero-image {
+    /* Usa flexbox para centralizar */
+    display: flex;
+    /* Centraliza horizontalmente */
+    justify-content: center;
+    /* Centraliza verticalmente */
+    align-items: center;
+}
+
+/* Card flutuante */
+.floating-card {
+    /* Largura */
+    width: 250px;
+    /* Altura */
+    height: 250px;
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Cantos arredondados */
+    border-radius: 20px;
+    /* Flexbox para centralizar o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Sombra */
+    box-shadow: var(--shadow-hover);
+    /* Animação flutuante */
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    /* Posição inicial */
+    0%, 100% { transform: translateY(0px); }
+    /* Posição no meio (sobe) */
+    50% { transform: translateY(-20px); }
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    /* Hero em coluna única */
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 50px 20px;
+    }
+    
+    /* Reduz tamanho do título */
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Reduz tamanho do card flutuante */
+    .floating-card {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* ========== BOTÕES ========== */
+/* Estilos gerais dos botões */
+.btn {
+    /* Exibe como bloco inline */
+    display: inline-block;
+    /* Espaçamento interno */
+    padding: 12px 30px;
+    /* Cantos arredondados */
+    border-radius: 50px;
+    /* Remove underline de link */
+    text-decoration: none;
+    /* Peso da fonte */
+    font-weight: 600;
+    /* Animação suave */
+    transition: all 0.3s ease;
+    /* Remove cursor padrão */
+    cursor: pointer;
+    /* Remove borda padrão */
+    border: none;
+    /* Tamanho da fonte */
+    font-size: 1rem;
+}
+
+/* Estilos do botão primário */
+.btn-primary {
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Cor do texto */
+    color: white;
+    /* Sombra */
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+/* Efeito ao passar o mouse no botão primário */
+.btn-primary:hover {
+    /* Sobe um pouco */
+    transform: translateY(-2px);
+    /* Aumenta a sombra */
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+/* Estilos do botão secundário */
+.btn-secondary {
+    /* Cor de fundo azul */
+    background: var(--secondary-color);
+    /* Cor do texto */
+    color: white;
+    /* Sombra */
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Efeito ao passar o mouse no botão secundário */
+.btn-secondary:hover {
+    /* Sobe um pouco */
+    transform: translateY(-2px);
+    /* Aumenta a sombra */
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* ========== CONTAINER ========== */
+/* Container que centraliza o conteúdo */
+.container {
+    /* Largura máxima */
+    max-width: 1200px;
+    /* Centraliza horizontalmente */
+    margin: 0 auto;
+    /* Espaçamento interno */
+    padding: 0 20px;
+}
+
+/* ========== CARDS ========== */
+/* Estilos gerais dos cards */
+.card {
+    /* Cor de fundo */
+    background: var(--card-bg);
+    /* Cantos arredondados */
+    border-radius: 15px;
+    /* Espaçamento interno */
+    padding: 30px;
+    /* Espaço abaixo */
+    margin-bottom: 30px;
+    /* Sombra */
+    box-shadow: var(--shadow);
+    /* Borda sutil */
+    border: 1px solid var(--border-color);
+    /* Animação suave */
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse no card */
+.card:hover {
+    /* Aumenta a sombra */
+    box-shadow: var(--shadow-hover);
+    /* Sobe um pouco */
+    transform: translateY(-2px);
+}
+
+/* Estilos do título do card */
+.card h2 {
+    /* Tamanho da fonte */
+    font-size: 1.5rem;
+    /* Espaço abaixo */
+    margin-bottom: 20px;
+    /* Cor do texto */
+    color: var(--text-color);
+    /* Borda abaixo */
+    border-bottom: 2px solid var(--border-color);
+    /* Espaço interno abaixo da borda */
+    padding-bottom: 15px;
+    /* Usa flexbox para alinhar */
+    display: flex;
+    align-items: center;
+    /* Espaço entre elementos */
+    gap: 10px;
+}
+
+/* Estilos do subtítulo do card */
+.card h3 {
+    /* Tamanho da fonte */
+    font-size: 1.2rem;
+    /* Cor do texto */
+    color: var(--text-color);
+    /* Espaço abaixo */
+    margin-bottom: 10px;
+}
+
+/* Estilos do parágrafo dentro do card */
+.card p {
+    /* Cor mais clara */
+    color: var(--text-light);
+    /* Altura da linha */
+    line-height: 1.8;
+    /* Espaço abaixo */
+    margin-bottom: 15px;
+}
+
+/* ========== ODS SECTION ========== */
+/* Estilos da seção ODS 13 */
+.ods-section {
+    /* Gradiente de fundo suave */
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
+    /* Espaçamento interno */
+    padding: 60px 20px;
+    /* Espaço acima e abaixo */
+    margin: 40px 0;
+    /* Cantos arredondados */
+    border-radius: 20px;
+}
+
+/* Título da seção ODS */
+.ods-section h2 {
+    /* Alinha o texto ao centro */
+    text-align: center;
+    /* Tamanho grande da fonte */
+    font-size: 2.2rem;
+    /* Espaço abaixo */
+    margin-bottom: 40px;
+    /* Cor do texto */
+    color: var(--text-color);
+}
+
+/* Grid do conteúdo ODS */
+.ods-content {
+    /* Cria um grid com duas colunas */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* Espaço entre as colunas */
+    gap: 40px;
+    /* Alinha itens verticalmente no centro */
+    align-items: center;
+}
+
+/* Ícone da ODS */
+.ods-icon {
+    /* Centraliza o conteúdo */
+    display: flex;
+    justify-content: center;
+}
+
+/* Badge circular da ODS */
+.ods-badge {
+    /* Largura */
+    width: 150px;
+    /* Altura */
+    height: 150px;
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Formato circular */
+    border-radius: 50%;
+    /* Flexbox para centralizar o texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Tamanho da fonte */
+    font-size: 2rem;
+    /* Peso da fonte */
+    font-weight: 700;
+    /* Cor do texto */
+    color: white;
+    /* Sombra */
+    box-shadow: var(--shadow-hover);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    /* Grid em coluna única */
+    .ods-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========== FEATURES GRID ========== */
+/* Seção de recursos */
+.features {
+    /* Espaçamento interno */
+    padding: 60px 20px;
+}
+
+/* Título da seção features */
+.features h2 {
+    /* Alinha ao centro */
+    text-align: center;
+    /* Tamanho grande */
+    font-size: 2.2rem;
+    /* Espaço abaixo */
+    margin-bottom: 50px;
+    /* Cor do texto */
+    color: var(--text-color);
+}
+
+/* Grid dos cards de recursos */
+.features-grid {
+    /* Cria um grid responsivo */
+    display: grid;
+    /* Colunas com tamanho mínimo de 300px */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Espaço entre items */
+    gap: 30px;
+}
+
+/* Card individual de recurso */
+.feature-card {
+    /* Cor de fundo */
+    background: var(--card-bg);
+    /* Espaçamento interno */
+    padding: 30px;
+    /* Cantos arredondados */
+    border-radius: 15px;
+    /* Alinha o texto ao centro */
+    text-align: center;
+    /* Sombra */
+    box-shadow: var(--shadow);
+    /* Borda sutil */
+    border: 1px solid var(--border-color);
+    /* Animação suave */
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse no card de recurso */
+.feature-card:hover {
+    /* Sobe mais que os cards normais */
+    transform: translateY(-10px);
+    /* Aumenta a sombra */
+    box-shadow: var(--shadow-hover);
+}
+
+/* Título do recurso */
+.feature-card h3 {
+    /* Espaço abaixo */
+    margin-bottom: 10px;
+    /* Cor do texto */
+    color: var(--text-color);
+}
+
+/* Descrição do recurso */
+.feature-card p {
+    /* Cor mais clara */
+    color: var(--text-light);
+    /* Tamanho um pouco menor */
+    font-size: 0.95rem;
+}
+
+/* ========== CTA SECTION ========== */
+/* Seção de chamada para ação */
+.cta {
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Cor do texto branca */
+    color: white;
+    /* Espaçamento interno */
+    padding: 60px 20px;
+    /* Alinha o texto ao centro */
+    text-align: center;
+    /* Espaço acima e abaixo */
+    margin: 60px 0;
+    /* Cantos arredondados */
+    border-radius: 20px;
+}
+
+/* Título da CTA */
+.cta h2 {
+    /* Tamanho da fonte */
+    font-size: 2rem;
+    /* Espaço abaixo */
+    margin-bottom: 15px;
+}
+
+/* Parágrafo da CTA */
+.cta p {
+    /* Tamanho da fonte */
+    font-size: 1.1rem;
+    /* Espaço abaixo */
+    margin-bottom: 30px;
+    /* Transparência leve */
+    opacity: 0.95;
+}
+
+/* Botão dentro da CTA */
+.cta .btn {
+    /* Cor de fundo branca */
+    background: white;
+    /* Cor do texto verde */
+    color: var(--primary-color);
+}
+
+/* ========== PAGE HEADER ========== */
+/* Cabeçalho das páginas internas */
+.page-header {
+    /* Alinha o texto ao centro */
+    text-align: center;
+    /* Espaçamento interno */
+    padding: 60px 20px;
+    /* Gradiente de fundo suave */
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.05), rgba(52, 152, 219, 0.05));
+    /* Cantos arredondados */
+    border-radius: 20px;
+    /* Espaço abaixo */
+    margin-bottom: 40px;
+}
+
+/* Título do page header */
+.page-header h1 {
+    /* Tamanho grande */
+    font-size: 2.5rem;
+    /* Espaço abaixo */
+    margin-bottom: 10px;
+    /* Cor do texto */
+    color: var(--text-color);
+}
+
+/* Parágrafo do page header */
+.page-header p {
+    /* Tamanho da fonte */
+    font-size: 1.1rem;
+    /* Cor mais clara */
+    color: var(--text-light);
+}
+
+/* ========== DASHBOARD PAGE ========== */
+/* Página de dados */
+.dashboard-page {
+    /* Espaçamento interno */
+    padding: 40px 20px;
+}
+
+/* Grid dos gráficos */
+.dashboard-grid {
+    /* Cria um grid com duas colunas */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Espaço entre items */
+    gap: 30px;
+    /* Espaço abaixo */
+    margin-bottom: 30px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    /* Grid em coluna única */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Seção do mapa */
+.map-section {
+    /* Espaço abaixo */
+    margin-bottom: 30px;
+}
+
+/* Mapa */
+#map {
+    /* Altura do mapa */
+    height: 400px;
+    /* Largura total */
+    width: 100%;
+    /* Cantos arredondados */
+    border-radius: 10px;
+    /* Ordem de sobreposição */
+    z-index: 1;
+}
+
+/* ========== HOW TO USE - RESUMIDO ========== */
+/* Grid de como usar */
+.how-to-grid {
+    /* Cria um grid responsivo */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Espaço entre items */
+    gap: 20px;
+    /* Espaço acima */
+    margin-top: 20px;
+}
+
+/* Item de como usar */
+.how-to-item {
+    /* Gradiente de fundo suave */
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
+    /* Espaçamento interno */
+    padding: 15px;
+    /* Cantos arredondados */
+    border-radius: 8px;
+    /* Borda esquerda */
+    border-left: 3px solid var(--primary-color);
+    /* Cor do texto */
+    color: var(--text-color);
+    /* Tamanho da fonte */
+    font-size: 0.95rem;
+    /* Altura da linha */
+    line-height: 1.6;
+}
+
+/* ========== AIR QUALITY ========== */
+/* Display de qualidade do ar */
+.air-quality-display {
+    /* Flexbox para alinhar */
+    display: flex;
+    align-items: center;
+    /* Espaço entre items */
+    gap: 30px;
+}
+
+/* Círculo do índice de qualidade do ar */
+.aqi-circle {
+    /* Largura */
+    width: 100px;
+    /* Altura */
+    height: 100px;
+    /* Formato circular */
+    border-radius: 50%;
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    /* Cor do texto */
+    color: white;
+    /* Flexbox para centralizar o número */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Tamanho grande da fonte */
+    font-size: 2.5rem;
+    /* Peso da fonte */
+    font-weight: bold;
+    /* Sombra */
+    box-shadow: var(--shadow-hover);
+}
+
+/* Informações de qualidade do ar */
+.aqi-info h3 {
+    /* Espaço abaixo */
+    margin-bottom: 5px;
+}
+
+/* ========== ALERTS ========== */
+/* Container de alertas */
+#alert-container {
+    /* Espaçamento interno */
+    padding: 20px;
+    /* Cor de fundo rosa claro */
+    background-color: #fff5f5;
+    /* Borda esquerda vermelha */
+    border-left: 4px solid var(--accent-color);
+    /* Cantos arredondados */
+    border-radius: 8px;
+}
+
+/* Item de alerta */
+.alert-item {
+    /* Espaço abaixo */
+    margin-bottom: 10px;
+    /* Peso da fonte */
+    font-weight: 600;
+    /* Cor vermelha */
+    color: var(--accent-color);
+    /* Tamanho da fonte */
+    font-size: 0.95rem;
+}
+
+/* Texto de carregamento */
+.loading {
+    /* Estilo itálico */
+    font-style: italic;
+    /* Cor mais clara */
+    color: var(--text-light);
+}
+
+/* ========== CONTENT PAGE ========== */
+/* Página de conteúdo */
+.content-page {
+    /* Espaçamento interno */
+    padding: 40px 20px;
+}
+
+/* ========== CONTACT SECTION ========== */
+/* Seção de contato */
+.contact-section {
+    /* Sem estilos adicionais necessários */
+}
+
+/* Grid de informações de contato */
+.contact-info-grid {
+    /* Cria um grid responsivo */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Espaço entre items */
+    gap: 20px;
+    /* Espaço acima */
+    margin-top: 20px;
+}
+
+/* Card de informação de contato */
+.contact-info-card {
+    /* Gradiente de fundo suave */
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(52, 152, 219, 0.1));
+    /* Espaçamento interno */
+    padding: 20px;
+    /* Cantos arredondados */
+    border-radius: 10px;
+    /* Borda esquerda */
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Título do card de contato */
+.contact-info-card h3 {
+    /* Cor primária */
+    color: var(--primary-color);
+    /* Espaço abaixo */
+    margin-bottom: 10px;
+}
+
+/* Parágrafo do card de contato */
+.contact-info-card p {
+    /* Cor do texto */
+    color: var(--text-color);
+}
+
+/* Links do card de contato */
+.contact-info-card a {
+    /* Remove underline */
+    text-decoration: none;
+    /* Cor primária */
+    color: var(--primary-color);
+    /* Transição suave */
+    transition: color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse no link */
+.contact-info-card a:hover {
+    /* Cor mais escura */
+    color: var(--secondary-color);
+}
+
+/* Links de redes sociais */
+.social-links {
+    /* Flex para organizar links */
+    display: flex;
+    flex-direction: column;
+    /* Espaço entre links */
+    gap: 10px;
+}
+
+/* Link de rede social */
+.social-links a {
+    /* Remove underline */
+    text-decoration: none;
+    /* Cor primária */
+    color: var(--primary-color);
+    /* Transição suave */
+    transition: color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse no link */
+.social-links a:hover {
+    /* Cor mais escura */
+    color: var(--secondary-color);
+}
+
+/* ========== FOOTER ========== */
+/* Rodapé */
+.footer {
+    /* Cor de fundo */
+    background: var(--card-bg);
+    /* Borda superior */
+    border-top: 1px solid var(--border-color);
+    /* Espaçamento interno */
+    padding: 30px 20px;
+    /* Alinha o texto ao centro */
+    text-align: center;
+    /* Cor do texto */
+    color: var(--text-light);
+    /* Espaço acima */
+    margin-top: 60px;
+}
+
+/* Parágrafo do footer */
+.footer p {
+    /* Espaço abaixo */
+    margin-bottom: 5px;
+    /* Tamanho da fonte */
+    font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    /* Reduz tamanho do título */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    /* Reduz tamanho do título da página */
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Reduz padding do card */
+    .card {
+        padding: 20px;
+    }
+    
+    /* Grids em coluna única */
+    .features-grid,
+    .how-to-grid,
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
