@@ -1,0 +1,192 @@
+<!-- ========================================
+     CLIMATRACK - PÁGINA DE DADOS (DADOS.HTML)
+     ======================================== -->
+
+<!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5 -->
+<html lang="pt-br">
+<!-- Tag raiz do HTML, define o idioma como português brasileiro -->
+
+<head>
+    <!-- Seção de cabeçalho do documento -->
+    
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8">
+    
+    <!-- Meta tag de viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título que aparece na aba do navegador -->
+    <title>Dados | ClimaTrack</title>
+    
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Link para importar a fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link para a biblioteca Chart.js que cria gráficos interativos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Link para o CSS do Leaflet (biblioteca de mapas interativos) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Link para o JavaScript do Leaflet (biblioteca de mapas interativos) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <!-- Início do corpo da página -->
+    
+    <!-- ========== NAVEGAÇÃO ========== -->
+    <!-- Barra de navegação fixa no topo -->
+    <nav class="navbar">
+        <!-- Container da navegação -->
+        <div class="nav-container">
+            
+            <!-- Logo do site -->
+            <div class="logo">
+                <!-- Texto do nome -->
+                <span class="logo-text">ClimaTrack</span>
+            </div>
+            
+            <!-- Menu de navegação -->
+            <ul class="nav-menu">
+                <!-- Link para página inicial -->
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <!-- Link para página de dados (ativa nesta página) -->
+                <li><a href="dados.html" class="nav-link active">Dados</a></li>
+                <!-- Link para página sobre -->
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+    <!-- Seção principal da página de dados -->
+    <main class="dashboard-page">
+        
+        <!-- ========== CABEÇALHO DA PÁGINA ========== -->
+        <!-- Seção de título e descrição -->
+        <div class="page-header">
+            <!-- Título principal da página -->
+            <h1>Dados de Monitoramento</h1>
+            <!-- Subtítulo descritivo -->
+            <p>Acompanhe dados ambientais em tempo real</p>
+        </div>
+
+        <!-- ========== CONTAINER PRINCIPAL ========== -->
+        <!-- Container que centraliza todo o conteúdo -->
+        <div class="container">
+            
+            <!-- ========== SEÇÃO DE ALERTAS ========== -->
+            <!-- Card com alertas ambientais -->
+            <section id="alerts" class="card">
+                <!-- Título -->
+                <h2>Alertas Ambientais</h2>
+                <!-- Container onde os alertas serão carregados via JavaScript -->
+                <div id="alert-container">
+                    <!-- Texto de carregamento enquanto os dados são buscados -->
+                    <p class="loading">Carregando alertas...</p>
+                </div>
+            </section>
+
+            <!-- ========== GRID DE GRÁFICOS ========== -->
+            <!-- Grid com dois gráficos lado a lado -->
+            <div class="dashboard-grid">
+                
+                <!-- ========== GRÁFICO DE TEMPERATURA ========== -->
+                <!-- Card com gráfico de temperatura -->
+                <section class="card">
+                    <!-- Título -->
+                    <h2>Temperatura Global</h2>
+                    <!-- Canvas onde o gráfico será renderizado -->
+                    <canvas id="tempChart"></canvas>
+                </section>
+
+                <!-- ========== GRÁFICO DE DESMATAMENTO ========== -->
+                <!-- Card com gráfico de desmatamento -->
+                <section class="card">
+                    <!-- Título -->
+                    <h2>Desmatamento (INPE)</h2>
+                    <!-- Canvas onde o gráfico será renderizado -->
+                    <canvas id="forestChart"></canvas>
+                </section>
+            </div>
+
+            <!-- ========== SEÇÃO DE MAPA ========== -->
+            <!-- Card com mapa interativo -->
+            <section class="card map-section">
+                <!-- Título -->
+                <h2>Visualização Geográfica</h2>
+                <!-- Container onde o mapa será renderizado -->
+                <div id="map"></div>
+            </section>
+
+            <!-- ========== SEÇÃO DE QUALIDADE DO AR ========== -->
+            <!-- Card com indicador de qualidade do ar -->
+            <section class="card">
+                <!-- Título -->
+                <h2>Qualidade do Ar</h2>
+                <!-- Container com o indicador de qualidade -->
+                <div class="air-quality-display">
+                    <!-- Círculo com o valor do índice de qualidade do ar -->
+                    <div class="aqi-circle" id="aqi-val">--</div>
+                    <!-- Informações sobre a qualidade do ar -->
+                    <div class="aqi-info">
+                        <!-- Status da qualidade do ar (será preenchido via JavaScript) -->
+                        <h3 id="aqi-status">Verificando...</h3>
+                        <!-- Descrição do que é o índice -->
+                        <p>Índice de Qualidade do Ar baseado em dados de satélite.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== SEÇÃO COMO USAR ========== -->
+            <!-- Card com instruções resumidas de uso -->
+            <section class="card how-to">
+                <!-- Título -->
+                <h2>Como Usar</h2>
+                <!-- Grid com instruções -->
+                <div class="how-to-grid">
+                    <!-- Instrução 1: Gráficos -->
+                    <div class="how-to-item">
+                        <!-- Título da instrução -->
+                        <strong>Gráficos:</strong> 
+                        <!-- Descrição da instrução -->
+                        Passe o mouse para ver valores específicos.
+                    </div>
+                    <!-- Instrução 2: Mapa -->
+                    <div class="how-to-item">
+                        <strong>Mapa:</strong> Clique nos marcadores para informações de monitoramento.
+                    </div>
+                    <!-- Instrução 3: Alertas -->
+                    <div class="how-to-item">
+                        <strong>Alertas:</strong> Acompanhe eventos ambientais em tempo real.
+                    </div>
+                    <!-- Instrução 4: Qualidade do Ar -->
+                    <div class="how-to-item">
+                        <strong>Qualidade do Ar:</strong> Veja o índice e o status atual.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ========== RODAPÉ ========== -->
+    <!-- Rodapé com informações de copyright -->
+    <footer class="footer">
+        <!-- Container para centralizar o conteúdo -->
+        <div class="container">
+            <!-- Texto de copyright -->
+            <p>&copy; 2024 ClimaTrack | Inspirado na ODS 13</p>
+        </div>
+    </footer>
+
+    <!-- Link para o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+<!-- Fim da tag body -->
+
+</html>
+<!-- Fim do documento HTML -->
