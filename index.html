@@ -3,106 +3,60 @@
      ======================================== -->
 
 <!DOCTYPE html>
-<!-- Declaração do tipo de documento HTML5 -->
 <html lang="pt-br">
-<!-- Tag raiz do HTML, define o idioma como português brasileiro -->
-
 <head>
-    <!-- Seção de cabeçalho do documento (não aparece na página) -->
-    
-    <!-- Define a codificação de caracteres como UTF-8 para suportar acentos e caracteres especiais -->
     <meta charset="UTF-8">
-    
-    <!-- Meta tag de viewport para deixar o site responsivo em dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Título que aparece na aba do navegador -->
     <title>ClimaTrack | Monitoramento Ambiental</title>
-    
-    <!-- Link para o arquivo CSS externo que contém todos os estilos do site -->
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Link para importar a fonte Poppins do Google Fonts com diferentes pesos -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Início do corpo da página (tudo que aparece visualmente) -->
-    
     <!-- ========== NAVEGAÇÃO ========== -->
-    <!-- Barra de navegação fixa no topo da página -->
     <nav class="navbar">
-        <!-- Container da navegação que centraliza o conteúdo -->
         <div class="nav-container">
-            
-            <!-- Logo do site com texto -->
             <div class="logo">
-                <!-- Texto do nome do projeto -->
                 <span class="logo-text">ClimaTrack</span>
             </div>
             
-            <!-- Menu de navegação com links para as diferentes páginas -->
             <ul class="nav-menu">
-                <!-- Link para a página inicial (ativa por padrão) -->
                 <li><a href="index.html" class="nav-link active">Início</a></li>
-                <!-- Link para a página de dados -->
                 <li><a href="dados.html" class="nav-link">Dados</a></li>
-                <!-- Link para a página sobre nós -->
                 <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+                <!-- Link para a página de login -->
+                <li><a href="login.html" class="nav-link">Login</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- ========== SEÇÃO HERO (DESTAQUE) ========== -->
-    <!-- Seção principal com apresentação do projeto -->
     <section class="hero">
-        <!-- Conteúdo textual do hero -->
         <div class="hero-content">
-            <!-- Título principal do site -->
             <h1>ClimaTrack</h1>
-            
-            <!-- Subtítulo com o lema do projeto -->
             <p class="subtitle">Monitorando o Planeta, Protegendo o Futuro</p>
-            
-            <!-- Descrição do que o site faz -->
             <p class="description">Um dashboard público dedicado a acompanhar dados ambientais em tempo real: desmatamento, temperatura e qualidade do ar.</p>
-            
-            <!-- Botão de chamada para ação que leva para a página de dados -->
             <a href="dados.html" class="btn btn-primary">Explorar Dados</a>
         </div>
         
-        <!-- Seção de imagem/ilustração do hero -->
         <div class="hero-image">
-            <!-- Card flutuante com plantinha -->
             <div class="floating-card">
-                <!-- Emoji de plantinha -->
                 <span class="emoji-plant">🌱</span>
             </div>
         </div>
     </section>
 
     <!-- ========== SEÇÃO ODS 13 ========== -->
-    <!-- Seção explicando a inspiração na ODS 13 -->
     <section class="ods-section">
-        <!-- Container para centralizar o conteúdo -->
         <div class="container">
-            <!-- Título da seção -->
             <h2>Inspirado na ODS 13</h2>
-            
-            <!-- Grid com ícone e texto sobre a ODS 13 -->
             <div class="ods-content">
-                <!-- Coluna com o badge da ODS 13 -->
                 <div class="ods-icon">
-                    <!-- Badge circular com o número da ODS -->
                     <div class="ods-badge">ODS 13</div>
                 </div>
                 
-                <!-- Coluna com o texto sobre a ODS 13 -->
                 <div class="ods-text">
-                    <!-- Título da ODS 13 -->
                     <h3>Ação Contra a Mudança Global do Clima</h3>
-                    
-                    <!-- Parágrafo explicando o propósito do projeto -->
                     <p>O ClimaTrack foi criado com inspiração na <strong>Objetivo de Desenvolvimento Sustentável 13</strong> das Nações Unidas. Nosso propósito é democratizar o acesso a dados ambientais, permitindo que qualquer pessoa possa acompanhar e entender os desafios climáticos que enfrentamos.</p>
                 </div>
             </div>
@@ -110,49 +64,35 @@
     </section>
 
     <!-- ========== SEÇÃO DE RECURSOS (FEATURES) ========== -->
-    <!-- Seção mostrando os principais recursos do site -->
     <section class="features">
-        <!-- Container para centralizar o conteúdo -->
         <div class="container">
-            <!-- Título da seção -->
             <h2>O Que Oferecemos</h2>
-            
-            <!-- Grid com 6 cards de recursos -->
             <div class="features-grid">
-                
-                <!-- Card 1: Gráficos Dinâmicos -->
                 <div class="feature-card">
-                    <!-- Título do recurso -->
                     <h3>Gráficos Dinâmicos</h3>
-                    <!-- Descrição do recurso -->
                     <p>Visualize tendências de temperatura e desmatamento com gráficos interativos.</p>
                 </div>
                 
-                <!-- Card 2: Alertas em Tempo Real -->
                 <div class="feature-card">
                     <h3>Alertas em Tempo Real</h3>
                     <p>Receba notificações sobre eventos ambientais críticos.</p>
                 </div>
                 
-                <!-- Card 3: Visualização Geográfica -->
                 <div class="feature-card">
                     <h3>Visualização Geográfica</h3>
                     <p>Explore um mapa interativo com áreas de monitoramento ambiental.</p>
                 </div>
                 
-                <!-- Card 4: Qualidade do Ar -->
                 <div class="feature-card">
                     <h3>Qualidade do Ar</h3>
                     <p>Acompanhe índices de qualidade do ar em tempo real.</p>
                 </div>
                 
-                <!-- Card 5: Comparação Histórica -->
                 <div class="feature-card">
                     <h3>Comparação Histórica</h3>
                     <p>Analise dados históricos para entender mudanças ambientais.</p>
                 </div>
                 
-                <!-- Card 6: Dados Confiáveis -->
                 <div class="feature-card">
                     <h3>Dados Confiáveis</h3>
                     <p>Utilizamos dados de fontes oficiais: INPE, NASA e IBAMA.</p>
@@ -162,48 +102,33 @@
     </section>
 
     <!-- ========== SEÇÃO CTA (CHAMADA PARA AÇÃO) ========== -->
-    <!-- Seção incentivando o usuário a explorar os dados -->
     <section class="cta">
-        <!-- Container para centralizar o conteúdo -->
         <div class="container">
-            <!-- Título da chamada para ação -->
             <h2>Pronto para Explorar?</h2>
-            
-            <!-- Descrição da chamada para ação -->
             <p>Acesse os dados ambientais agora mesmo.</p>
-            
-            <!-- Botão que leva para a página de dados -->
             <a href="dados.html" class="btn btn-secondary">Ir para Dados</a>
         </div>
     </section>
 
     <!-- ========== RODAPÉ ========== -->
-    <!-- Rodapé com informações de copyright -->
     <footer class="footer">
-        <!-- Container para centralizar o conteúdo -->
         <div class="container">
-            <!-- Texto de copyright -->
             <p>&copy; 2026 ClimaTrack | Inspirado na ODS 13</p>
         </div>
     </footer>
 
-    <!-- Link para o arquivo JavaScript externo que contém as funcionalidades interativas -->
     <script src="script.js"></script>
     <script src="https://unpkg.com/blip-chat-widget" type="text/javascript"></script>
-<script>
-    (function () {
-        window.onload = function () {
-            new BlipChat()
-                .withAppKey('Ym90c2l0ZWZ3OjJjNDg3YTM1LThmZjktNGNhZi1hNGJkLThiYjU0NzE3NzU3ZQ==')
-                .withButton({"color":"#4f7459","icon":"https://blipmediastore.blob.core.windows.net/permanent/Media_4_8639ebc7-68ac-4f02-8c43-71c28ca4e16e"})
-                .withCustomCommonUrl('https://esther-santos-m72f5.chat.blip.ai/')
-                .build();
-        }
-    })();
-</script>
-            
+    <script>
+        (function () {
+            window.onload = function () {
+                new BlipChat()
+                    .withAppKey('Ym90c2l0ZWZ3OjJjNDg3YTM1LThmZjktNGNhZi1hNGJkLThiYjU0NzE3NzU3ZQ==')
+                    .withButton({"color":"#4f7459","icon":"https://blipmediastore.blob.core.windows.net/permanent/Media_4_8639ebc7-68ac-4f02-8c43-71c28ca4e16e"})
+                    .withCustomCommonUrl('https://esther-santos-m72f5.chat.blip.ai/')
+                    .build();
+            }
+        })();
+    </script>
 </body>
-<!-- Fim da tag body -->
-
 </html>
-<!-- Fim do documento HTML -->
