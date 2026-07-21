@@ -15,11 +15,66 @@ document.addEventListener('DOMContentLoaded', () => {
         initDashboard();
     }
     
-
-    
     /* Atualiza o link ativo do menu de navegação */
     updateActiveNavLink();
 });
+
+/* ========== AUTENTICAÇÃO ========== */
+/* Função que atualiza a navegação baseado no status de login */
+function updateNavigationAuth() {
+    /* Obtém o container de autenticação do navbar */
+    const navAuth = document.getElementById('nav-auth');
+    
+    /* Verifica se o container existe na página */
+    if (!navAuth) return;
+    
+    /* Obtém os dados do usuário do localStorage */
+    const userData = JSON.parse(localStorage.getItem('climatrack_user'));
+    
+    /* Se o usuário está logado */
+    if (userData) {
+        /* Limpa o container */
+        navAuth.innerHTML = '';
+        
+        /* Cria um span com o nome do usuário */
+        const userSpan = document.createElement('span');
+        userSpan.style.marginRight = '15px';
+        userSpan.style.color = '#1B5E20';
+        userSpan.style.fontWeight = '600';
+        userSpan.textContent = `Olá, ${userData.name}`;
+        
+        /* Adiciona o span ao container */
+        navAuth.appendChild(userSpan);
+        
+        /* Cria um link para a área do usuário */
+        const userLink = document.createElement('a');
+        userLink.href = 'area-usuario.html';
+        userLink.className = 'btn btn-secondary';
+        userLink.textContent = 'Minha Área';
+        
+        /* Adiciona o link ao container */
+        navAuth.appendChild(userLink);
+        
+        /* Cria um espaço em branco */
+        const space = document.createElement('span');
+        space.style.marginRight = '10px';
+        
+        /* Adiciona o espaço ao container */
+        navAuth.appendChild(space);
+        
+        /* Cria um botão de logout */
+        const logoutBtn = document.createElement('button');
+        logoutBtn.className = 'btn btn-logout';
+        logoutBtn.textContent = 'Sair';
+        logoutBtn.onclick = () => {
+            localStorage.removeItem('climatrack_user');
+            window.location.href = 'index.html';
+        };
+        
+        /* Adiciona o botão ao container */
+        navAuth.appendChild(logoutBtn);
+    }
+}
 
 /* ========== NAVEGAÇÃO ========== */
 /* Função que atualiza qual link do menu está ativo */
