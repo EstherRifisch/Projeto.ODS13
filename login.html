@@ -1,25 +1,82 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClimaTrack - Login</title>
-    <link rel="stylesheet" href="login.css">
-</head>
-<body>
-    <div class="login-container">
-        <div class="login-box">
-            <div class="logo-section">
-                <div class="logo-circle">
-                    <span class="logo-text">CT</span>
-                </div>
-                <h1>ClimaTrack</h1>
-                <p class="tagline">Monitorando o clima, cuidando do futuro</p>
-            </div>
+<!-- ========================================
+     CLIMATRACK - PÁGINA DE LOGIN (LOGIN.HTML)
+     ======================================== -->
 
-            <form id="loginForm" class="login-form">
+<!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5 -->
+<html lang="pt-br">
+<!-- Tag raiz do HTML, define o idioma como português brasileiro -->
+
+<head>
+    <!-- Seção de cabeçalho do documento -->
+    
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8">
+    
+    <!-- Meta tag de viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título que aparece na aba do navegador -->
+    <title>Login | ClimaTrack</title>
+    
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Link para importar a fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Início do corpo da página -->
+    
+    <!-- ========== NAVEGAÇÃO ========== -->
+    <!-- Barra de navegação fixa no topo -->
+    <nav class="navbar">
+        <!-- Container da navegação -->
+        <div class="nav-container">
+            
+            <!-- Logo do site -->
+            <div class="logo">
+                <!-- Link para página inicial -->
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <!-- Texto do nome -->
+                    <span class="logo-text">ClimaTrack</span>
+                </a>
+            </div>
+            
+            <!-- Menu de navegação -->
+            <ul class="nav-menu">
+                <!-- Link para página inicial -->
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <!-- Link para página de dados -->
+                <li><a href="dados.html" class="nav-link">Dados</a></li>
+                <!-- Link para página sobre -->
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+    <!-- Container de login -->
+    <div class="login-container">
+        
+        <!-- Card de login -->
+        <div class="login-card">
+            
+            <!-- Título -->
+            <h1>Bem-vindo</h1>
+            
+            <!-- Subtítulo -->
+            <p>Acesse sua conta para explorar dados ambientais exclusivos</p>
+            
+            <!-- Formulário de login -->
+            <form id="login-form">
+                
+                <!-- Grupo de email -->
                 <div class="form-group">
+                    <!-- Label do email -->
                     <label for="email">Email</label>
+                    <!-- Input do email -->
                     <input 
                         type="email" 
                         id="email" 
@@ -27,68 +84,107 @@
                         placeholder="seu@email.com" 
                         required
                     >
-                    <span class="error-message" id="emailError"></span>
                 </div>
-
+                
+                <!-- Grupo de senha -->
                 <div class="form-group">
+                    <!-- Label da senha -->
                     <label for="password">Senha</label>
-                    <div class="password-input-wrapper">
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            placeholder="Digite sua senha" 
-                            required
-                        >
-                        <button 
-                            type="button" 
-                            class="toggle-password" 
-                            id="togglePassword"
-                            aria-label="Mostrar/ocultar senha"
-                        >
-                            <span class="eye-icon">👁️</span>
-                        </button>
-                    </div>
-                    <span class="error-message" id="passwordError"></span>
+                    <!-- Input da senha -->
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Sua senha segura" 
+                        required
+                    >
                 </div>
-
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox" name="remember" id="remember">
-                        <span>Lembrar-me</span>
-                    </label>
-                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
-                </div>
-
-                <button type="submit" class="login-button">Entrar</button>
-
-                <div class="login-message" id="loginMessage"></div>
+                
+                <!-- Botão de envio -->
+                <button type="submit" class="btn btn-primary">Entrar</button>
             </form>
-
-            <div class="signup-section">
-                <p>Não tem uma conta? <a href="#" class="signup-link">Cadastre-se aqui</a></p>
+            
+            <!-- Link de cadastro -->
+            <div class="login-toggle">
+                <!-- Texto -->
+                Não tem conta? 
+                <!-- Link para cadastro -->
+                <a href="#" onclick="toggleForm(event)">Cadastre-se aqui</a>
             </div>
-
-            <div class="social-login">
-                <p class="divider">Ou continue com</p>
-                <div class="social-buttons">
-                    <button type="button" class="social-btn google-btn" id="googleBtn">
-                        <span class="social-icon">🔍</span> Google
-                    </button>
-                    <button type="button" class="social-btn github-btn" id="githubBtn">
-                        <span class="social-icon">⚙️</span> GitHub
-                    </button>
+            
+            <!-- Formulário de cadastro (inicialmente oculto) -->
+            <form id="signup-form" style="display: none;">
+                
+                <!-- Grupo de nome -->
+                <div class="form-group">
+                    <!-- Label do nome -->
+                    <label for="name">Nome Completo</label>
+                    <!-- Input do nome -->
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Seu nome completo" 
+                        required
+                    >
                 </div>
+                
+                <!-- Grupo de email -->
+                <div class="form-group">
+                    <!-- Label do email -->
+                    <label for="signup-email">Email</label>
+                    <!-- Input do email -->
+                    <input 
+                        type="email" 
+                        id="signup-email" 
+                        name="email" 
+                        placeholder="seu@email.com" 
+                        required
+                    >
+                </div>
+                
+                <!-- Grupo de senha -->
+                <div class="form-group">
+                    <!-- Label da senha -->
+                    <label for="signup-password">Senha</label>
+                    <!-- Input da senha -->
+                    <input 
+                        type="password" 
+                        id="signup-password" 
+                        name="password" 
+                        placeholder="Crie uma senha segura" 
+                        required
+                    >
+                </div>
+                
+                <!-- Botão de envio -->
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+            
+            <!-- Link de volta para login (inicialmente oculto) -->
+            <div class="login-toggle" id="back-to-login" style="display: none;">
+                <!-- Texto -->
+                Já tem conta? 
+                <!-- Link para login -->
+                <a href="#" onclick="toggleForm(event)">Faça login</a>
             </div>
-        </div>
-
-        <div class="background-decoration">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
         </div>
     </div>
 
-    <script src="login.js"></script>
+    <!-- ========== RODAPÉ ========== -->
+    <!-- Rodapé com informações de copyright -->
+    <footer class="footer">
+        <!-- Container para centralizar o conteúdo -->
+        <div class="container">
+            <!-- Texto de copyright -->
+            <p>&copy; 2026 ClimaTrack | Inspirado na ODS 13</p>
+        </div>
+    </footer>
+
+    <!-- Link para o arquivo JavaScript de autenticação -->
+    <script src="auth.js"></script>
 </body>
+<!-- Fim da tag body -->
+
 </html>
+<!-- Fim do documento HTML -->
