@@ -1,0 +1,222 @@
+<!-- ========================================
+     CLIMATRACK - ÁREA DO USUÁRIO (AREA-USUARIO.HTML)
+     ======================================== -->
+
+<!DOCTYPE html>
+<!-- Declaração do tipo de documento HTML5 -->
+<html lang="pt-br">
+<!-- Tag raiz do HTML, define o idioma como português brasileiro -->
+
+<head>
+    <!-- Seção de cabeçalho do documento -->
+    
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8">
+    
+    <!-- Meta tag de viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título que aparece na aba do navegador -->
+    <title>Minha Área | ClimaTrack</title>
+    
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Link para importar a fonte Poppins do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Início do corpo da página -->
+    
+    <!-- ========== NAVEGAÇÃO ========== -->
+    <!-- Barra de navegação fixa no topo -->
+    <nav class="navbar">
+        <!-- Container da navegação -->
+        <div class="nav-container">
+            
+            <!-- Logo do site -->
+            <div class="logo">
+                <!-- Link para página inicial -->
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <!-- Texto do nome -->
+                    <span class="logo-text">ClimaTrack</span>
+                </a>
+            </div>
+            
+            <!-- Menu de navegação -->
+            <ul class="nav-menu">
+                <!-- Link para página inicial -->
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <!-- Link para página de dados -->
+                <li><a href="dados.html" class="nav-link">Dados</a></li>
+                <!-- Link para página sobre -->
+                <li><a href="sobre.html" class="nav-link">Sobre</a></li>
+            </ul>
+            
+            <!-- Botão de logout -->
+            <div class="nav-auth">
+                <!-- Botão de logout -->
+                <button class="btn btn-logout" onclick="logout()">Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+    <!-- Container da área do usuário -->
+    <div class="user-area-container">
+        
+        <!-- ========== CABEÇALHO DA ÁREA DO USUÁRIO ========== -->
+        <!-- Seção de boas-vindas -->
+        <div class="user-header">
+            <!-- Título principal -->
+            <h1>Bem-vindo(a), <span class="user-name" id="user-name">Usuário</span>!</h1>
+            <!-- Subtítulo -->
+            <p>Você agora tem acesso exclusivo aos dados ambientais do ClimaTrack</p>
+        </div>
+        
+        <!-- ========== GRID DE CARDS ========== -->
+        <!-- Grid com cards de funcionalidades -->
+        <div class="user-grid">
+            
+            <!-- ========== CARD 1: RESUMO DO PROJETO ========== -->
+            <!-- Card com informações sobre o projeto -->
+            <div class="user-card">
+                <!-- Título -->
+                <h2>📊 Sobre o ClimaTrack</h2>
+                <!-- Descrição -->
+                <p>
+                    O ClimaTrack é uma plataforma de monitoramento ambiental em tempo real, 
+                    desenvolvida com inspiração na ODS 13. Aqui você pode acompanhar dados sobre 
+                    temperatura global, desmatamento e qualidade do ar, contribuindo para uma 
+                    tomada de decisão mais consciente e sustentável.
+                </p>
+                <!-- Botão de ação -->
+                <a href="sobre.html" class="btn btn-primary">Saiba Mais</a>
+            </div>
+            
+            <!-- ========== CARD 2: DASHBOARD DE DADOS ========== -->
+            <!-- Card com acesso ao dashboard -->
+            <div class="user-card">
+                <!-- Título -->
+                <h2>📈 Dashboard de Dados</h2>
+                <!-- Descrição -->
+                <p>
+                    Acesse o dashboard completo com gráficos interativos, mapas de monitoramento 
+                    e alertas ambientais em tempo real. Visualize tendências históricas e acompanhe 
+                    eventos climáticos críticos em diferentes regiões do Brasil.
+                </p>
+                <!-- Botão de ação -->
+                <a href="dados.html" class="btn btn-primary">Explorar Dados</a>
+            </div>
+            
+            <!-- ========== CARD 3: COMO AJUDAR ========== -->
+            <!-- Card com dicas de ação -->
+            <div class="user-card">
+                <!-- Título -->
+                <h2>🌱 Como Ajudar</h2>
+                <!-- Descrição -->
+                <p>
+                    Pequenas ações fazem diferença! Descubra dicas práticas e sustentáveis que você 
+                    pode implementar no seu dia a dia para contribuir com a preservação do meio ambiente 
+                    e a redução de emissões de gases de efeito estufa.
+                </p>
+                <!-- Botão de ação -->
+                <a href="sobre.html" class="btn btn-secondary">Ver Dicas</a>
+            </div>
+            
+            <!-- ========== CARD 4: PERFIL ========== -->
+            <!-- Card com informações do perfil -->
+            <div class="user-card">
+                <!-- Título -->
+                <h2>👤 Meu Perfil</h2>
+                <!-- Descrição -->
+                <p>
+                    Gerencie suas informações pessoais, preferências de notificações e histórico de 
+                    atividades. Mantenha seus dados atualizados para receber alertas personalizados 
+                    sobre mudanças ambientais em regiões de seu interesse.
+                </p>
+                <!-- Botão de ação -->
+                <button class="btn btn-secondary" onclick="editProfile()">Editar Perfil</button>
+            </div>
+            
+            <!-- ========== CARD 5: RELATÓRIOS ========== -->
+            <!-- Card com acesso a relatórios -->
+            <div class="user-card">
+                <!-- Título -->
+                <h2>📋 Relatórios</h2>
+                <!-- Descrição -->
+                <p>
+                    Baixe relatórios detalhados sobre dados ambientais, análises de tendências e 
+                    comparações históricas. Perfeito para pesquisa, educação e tomada de decisões 
+                    baseadas em dados confiáveis.
+                </p>
+                <!-- Botão de ação -->
+                <button class="btn btn-secondary" onclick="generateReport()">Gerar Relatório</button>
+            </div>
+            
+            <!-- ========== CARD 6: COMUNIDADE ========== -->
+            <!-- Card com informações sobre a comunidade -->
+            <div class="user-card">
+                <!-- Título -->
+                <h2>🤝 Comunidade</h2>
+                <!-- Descrição -->
+                <p>
+                    Conecte-se com outros usuários do ClimaTrack, compartilhe insights sobre 
+                    sustentabilidade e participe de discussões sobre ações climáticas. Juntos 
+                    somos mais fortes na luta pela preservação do planeta.
+                </p>
+                <!-- Botão de ação -->
+                <button class="btn btn-secondary" onclick="accessCommunity()">Acessar Comunidade</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== RODAPÉ ========== -->
+    <!-- Rodapé com informações de copyright -->
+    <footer class="footer">
+        <!-- Container para centralizar o conteúdo -->
+        <div class="container">
+            <!-- Texto de copyright -->
+            <p>&copy; 2026 ClimaTrack | Inspirado na ODS 13</p>
+        </div>
+    </footer>
+
+    <!-- Link para o arquivo JavaScript de autenticação -->
+    <script src="auth.js"></script>
+    
+    <!-- Script para carregar dados do usuário -->
+    <script>
+        /* Função que carrega os dados do usuário ao abrir a página */
+        function loadUserData() {
+            /* Obtém os dados do usuário do localStorage */
+            const userData = JSON.parse(localStorage.getItem('climatrack_user'));
+            
+            /* Verifica se o usuário está logado */
+            if (!userData) {
+                /* Se não estiver, redireciona para a página de login */
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            /* Atualiza o nome do usuário na página */
+            document.getElementById('user-name').textContent = userData.name || 'Usuário';
+        }
+        
+        /* Função de logout */
+        function logout() {
+            /* Remove os dados do usuário do localStorage */
+            localStorage.removeItem('climatrack_user');
+            /* Redireciona para a página inicial */
+            window.location.href = 'index.html';
+        }
+        
+        /* Carrega os dados do usuário quando a página carrega */
+        document.addEventListener('DOMContentLoaded', loadUserData);
+    </script>
+</body>
+<!-- Fim da tag body -->
+
+</html>
+<!-- Fim do documento HTML -->
+
